@@ -1,0 +1,15 @@
+{
+    "name": "graviton/mongodb-fixtures-bundle",
+    "type": "symfony-bundle",
+    "description": "A drop-in replacement for liip/test-fixtures-bundle that is dependency free and only focuses on MongoDB ODM fixtures",
+    "homepage": "https://github.com/libgraviton/mongodb-fixtures-bundle",
+    "license": "MIT",
+    "require": {
+        "doctrine/mongodb-odm-bundle": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Graviton\\MongoDB\\Fixtures\\": "src/"
+        }
+    }
+}
