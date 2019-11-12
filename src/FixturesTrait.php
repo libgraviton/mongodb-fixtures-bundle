@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ResettableContainerInterface;
 trait FixturesTrait
 {
     protected $environment = 'test';
+    protected $containers = [];
 
     protected function getContainer(): ContainerInterface
     {
