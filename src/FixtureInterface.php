@@ -2,7 +2,7 @@
 
 namespace Graviton\MongoDB\Fixtures;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Interface contract for fixture classes to implement.
