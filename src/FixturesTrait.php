@@ -9,28 +9,28 @@ use Symfony\Component\DependencyInjection\ResettableContainerInterface;
 
 trait FixturesTrait
 {
-    protected $environment = 'test';
-    protected $containers = [];
+    static protected $environment = 'test';
+    static protected $containers = [];
 
-    protected function getContainer(): ContainerInterface
+    protected static function getContainer(): ContainerInterface
     {
-        $cacheKey = $this->environment;
-        if (empty($this->containers[$cacheKey])) {
+        $cacheKey = self::$environment;
+        if (empty(self::$containers[$cacheKey])) {
             $options = [
-                'environment' => $this->environment,
+                'environment' => self::$environment,
             ];
-            $kernel = $this->createKernel($options);
+            $kernel = self::createKernel($options);
             $kernel->boot();
 
             $container = $kernel->getContainer();
             if ($container->has('test.service_container')) {
-                $this->containers[$cacheKey] = $container->get('test.service_container');
+                self::$containers[$cacheKey] = $container->get('test.service_container');
             } else {
-                $this->containers[$cacheKey] = $container;
+                self::$containers[$cacheKey] = $container;
             }
         }
 
-        return $this->containers[$cacheKey];
+        return self::$containers[$cacheKey];
     }
 
     protected function loadFixtures(array $classNames = [], bool $append = false, ?string $omName = null, string $registryName = 'doctrine', ?int $purgeMode = null)
