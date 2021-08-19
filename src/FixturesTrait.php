@@ -80,15 +80,15 @@ trait FixturesTrait
 
     protected function tearDown(): void
     {
-        if (null !== $this->containers) {
-            foreach ($this->containers as $container) {
+        if (is_array(self::$containers)) {
+            foreach (self::$containers as $idx => $container) {
                 if ($container instanceof ResettableContainerInterface) {
-                    $container->reset();
+                    self::$containers[$idx]->reset();
                 }
             }
         }
 
-        $this->containers = null;
+        self::$containers = null;
 
         parent::tearDown();
     }
