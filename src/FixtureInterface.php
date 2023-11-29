@@ -2,7 +2,7 @@
 
 namespace Graviton\MongoDB\Fixtures;
 
-use Doctrine\Persistence\ObjectManager;
+use Doctrine\ODM\MongoDB\DocumentManager;
 
 /**
  * Interface contract for fixture classes to implement.
@@ -14,7 +14,7 @@ interface FixtureInterface
     /**
      * Load data fixtures with the passed EntityManager
      *
-     * @param ObjectManager $manager
+     * @param DocumentManager $manager
      */
-    public function load(ObjectManager $manager);
+    public function load(DocumentManager $manager);
 }
