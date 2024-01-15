@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "doctrine/mongodb-odm-bundle": "^4.0",
-        "symfony/symfony": "~5"
+        "symfony/symfony": "^6"
     },
     "autoload": {
         "psr-4": {
