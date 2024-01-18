@@ -5,7 +5,7 @@
     "homepage": "https://github.com/libgraviton/mongodb-fixtures-bundle",
     "license": "MIT",
     "require": {
-        "doctrine/mongodb-odm-bundle": "^4.0",
+        "doctrine/mongodb-odm-bundle": ">=4.0.0",
         "symfony/symfony": ">=6.0.0"
     },
     "autoload": {
