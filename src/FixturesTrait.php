@@ -3,7 +3,6 @@
 namespace Graviton\MongoDB\Fixtures;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ResettableContainerInterface;
 
@@ -53,14 +52,11 @@ trait FixturesTrait
             if (!class_exists($className)) {
                 throw new \LogicException('Fixtures class "'.$className.'" could not be found.');
             }
-            $inst = new $className;
+
+            $inst = $this->getContainer()->get($className);
 
             if (!$inst instanceof FixtureInterface) {
                 throw new \LogicException('Fixtures class "'.$className.'" is not instance of FixtureInterface.');
-            }
-
-            if ($inst instanceof ContainerAwareInterface) {
-                $inst->setContainer($this->getContainer());
             }
 
             $inst->load($dm);
